@@ -9,7 +9,7 @@ import fundRoutes from "./routes/fundRoutes.js";
 import { startNavUpdateJob } from "./controllers/fundController.js";
 dotenv.config();
 const app = express();
-const client = new MongoClient(process.env.MONGO_URI);
+const client = new MongoClient(process.env.MONGO_URI,{ tls: true });
 await client.connect();
 const db = client.db("MutualFund"); // Database name
 
